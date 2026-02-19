@@ -1,5 +1,6 @@
 //Home Page
 //Primarily focuses on element styling with css and creating links
+//TEST CONNECTION
 
 $w.onReady(function () {
 
