@@ -3,6 +3,10 @@
 
 $w.onReady(function () {
 
+	//Chapters header styling
+	const chapters_header = $w("#chapters-header").text;
+    $w("#chapters-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${chapters_header}</p>`;
+
 	//Styling constants
 	const colorBlue = "#87aade";
 	const fontSize = "16px";

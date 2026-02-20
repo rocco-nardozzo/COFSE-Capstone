@@ -1,28 +1,27 @@
 //About Page
-//Primarily focuses on elmeent styling with css and creating links
-//TEST
+//Primarily focuses on element styling with css and creating links
 
 $w.onReady(function () {
 
     //About Us header styling
 	const about_us = $w("#About-header").text;
-	$w("#About-header").html = `<p style="text-align: center;font-size: 42px;font-family: 'Oswald', sans-seriff;">${about_us}</p>`;
+	$w("#About-header").html = `<p style="text-align: center;font-size: 42px;font-family: 'Oswald', sans-serif;">${about_us}</p>`;
 
     //Background header styling
 	const background = $w("#background-header").text;
-    $w("#background-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-seriff; font-weight: bold;">${background}</p>`;
+    $w("#background-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${background}</p>`;
 
     //Objectives header styling
 	const objectives = $w("#objectives-header").text;
-    $w("#objectives-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-seriff; font-weight: bold;">${objectives}</p>`;
+    $w("#objectives-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${objectives}</p>`;
 
     //DEI header styling
 	const dei = $w("#DEI-header").text;
-    $w("#DEI-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-seriff; font-weight: bold;">${dei}</p>`;
+    $w("#DEI-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${dei}</p>`;
 
     //Executive board header styling
 	const exec = $w("#Exec-header").text;
-    $w("#Exec-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-seriff; font-weight: bold;">${exec}</p>`;
+    $w("#Exec-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${exec}</p>`;
 
     //Adds blank line after each paragraph in the DEI content
 	const dei_content = $w("#DEI-content").text;
@@ -53,27 +52,27 @@ $w.onReady(function () {
 
     //President header styling
 	const pres = $w("#pres-header").text;
-    $w("#pres-header").html = `<p style="text-align: center;font-size: 16px;font-family: 'Questrial', sans-seriff; font-weight: bold;">${pres}</p>`;
+    $w("#pres-header").html = `<p style="text-align: center;font-size: 16px;font-family: 'Questrial', sans-serif; font-weight: bold;">${pres}</p>`;
 
     //President elect header styling
 	const pres_elect = $w("#pres-elect-header").text;
-    $w("#pres-elect-header").html = `<p style="text-align: center;font-size: 16px;font-family: 'Questrial', sans-seriff; font-weight: bold;">${pres_elect}</p>`;
+    $w("#pres-elect-header").html = `<p style="text-align: center;font-size: 16px;font-family: 'Questrial', sans-serif; font-weight: bold;">${pres_elect}</p>`;
 
     //Secretary header styling
 	const secretary = $w("#secretary-header").text;
-    $w("#secretary-header").html = `<p style="text-align: center;font-size: 16px;font-family: 'Questrial', sans-seriff; font-weight: bold;">${secretary}</p>`;
+    $w("#secretary-header").html = `<p style="text-align: center;font-size: 16px;font-family: 'Questrial', sans-serif; font-weight: bold;">${secretary}</p>`;
 
     //Treasurer header styling
 	const treasurer = $w("#treasurer-header").text;
-    $w("#treasurer-header").html = `<p style="text-align: center;font-size: 16px;font-family: 'Questrial', sans-seriff; font-weight: bold;">${treasurer}</p>`;
+    $w("#treasurer-header").html = `<p style="text-align: center;font-size: 16px;font-family: 'Questrial', sans-serif; font-weight: bold;">${treasurer}</p>`;
 
     //Past president header styling
 	const past_pres = $w("#past-pres-header").text;
-    $w("#past-pres-header").html = `<p style="text-align: center;font-size: 16px;font-family: 'Questrial', sans-seriff; font-weight: bold;">${past_pres}</p>`;
+    $w("#past-pres-header").html = `<p style="text-align: center;font-size: 16px;font-family: 'Questrial', sans-serif; font-weight: bold;">${past_pres}</p>`;
 
     //President info styling and email linking
 	$w("#pres-box").html = `
-        <p style="text-align: center; font-size: 14px; font-family: 'Questrial', sans-seriff;">
+        <p style="text-align: center; font-size: 14px; font-family: 'Questrial', sans-serif;">
             Pamela Marshall, Ph.D.<br>
             340 Fisher Hall<br>
             Pittsburgh, PA 15282<br>
@@ -84,7 +83,7 @@ $w.onReady(function () {
 
     //President elect info styling and email linking
 	$w("#pres-elect-box").html = `
-        <p style="text-align: center; font-size: 14px; font-family: 'Questrial', sans-seriff;">
+        <p style="text-align: center; font-size: 14px; font-family: 'Questrial', sans-serif;">
             Lyndsie Ferrara, Ph.D.<br>
             339D Fisher Hall<br>
             Pittsburgh, PA 15282<br>
@@ -94,7 +93,7 @@ $w.onReady(function () {
 
     //Secretary info styling and email linking
 	$w("#secretary-box").html = `
-        <p style="text-align: center; font-size: 14px; font-family: 'Questrial', sans-seriff;">
+        <p style="text-align: center; font-size: 14px; font-family: 'Questrial', sans-serif;">
             Andra Lewis, Ph.D.<br>
             100 College Drive<br>
             Allentown, PA 18104<br>
@@ -104,7 +103,7 @@ $w.onReady(function () {
 
     //Treasurer info styling and email linking
 	$w("#treasurer-box").html = `
-        <p style="text-align: center; font-size: 14px; font-family: 'Questrial', sans-seriff;">
+        <p style="text-align: center; font-size: 14px; font-family: 'Questrial', sans-serif;">
             Cait Porterfield, M.S.<br>
             100 N. University Drive<br>
             Edmond, OK 73034<br>
@@ -115,7 +114,7 @@ $w.onReady(function () {
 
     //Past President info styling and email linking
 	$w("#past-pres-box").html = `
-        <p style="text-align: center; font-size: 14px; font-family: 'Questrial', sans-seriff;">
+        <p style="text-align: center; font-size: 14px; font-family: 'Questrial', sans-serif;">
             Gina Londino-Smolar, Ed.D.<br>
             402 N. Blackford, LD222<br>
             Indianapolis IN 46202<br>

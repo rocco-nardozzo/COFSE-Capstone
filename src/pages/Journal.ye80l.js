@@ -5,7 +5,7 @@ $w.onReady(function () {
 
 	//JFSE header styling
 	const jfse = $w("#JFSE-header").text;
-	$w("#JFSE-header").html = `<p style="text-align: center;font-size: 42px;font-family: 'Oswald', sans-seriff;">${jfse}</p>`;
+	$w("#JFSE-header").html = `<p style="text-align: center;font-size: 42px;font-family: 'Oswald', sans-serif;">${jfse}</p>`;
 	
 	//Create link for paragraph 1
 	let JFSE_par1HTML = $w("#JFSE-par1").html;
@@ -40,10 +40,10 @@ $w.onReady(function () {
 
 	//Manuscript header styling
 	const manuscript = $w("#manuscript-header").text;
-    $w("#manuscript-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-seriff; font-weight: bold;">${manuscript}</p>`;
+    $w("#manuscript-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${manuscript}</p>`;
 
 	//Editors header styling
 	const editors = $w("#editors-header").text;
-    $w("#editors-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-seriff; font-weight: bold;">${editors}</p>`;
+    $w("#editors-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${editors}</p>`;
 
 });

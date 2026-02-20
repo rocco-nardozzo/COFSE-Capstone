@@ -7,7 +7,7 @@ $w.onReady(function () {
 
 	//Committees header styling
 	const committees = $w("#committees-header").text;
-	$w("#committees-header").html = `<p style="text-align: center;font-size: 42px;font-family: 'Oswald', sans-seriff;">${committees}</p>`;
+	$w("#committees-header").html = `<p style="text-align: center;font-size: 42px;font-family: 'Oswald', sans-serif;">${committees}</p>`;
 
 	//Linking membership and outreach header to the appropriate page
 	$w("#membership-link").onClick(() => {

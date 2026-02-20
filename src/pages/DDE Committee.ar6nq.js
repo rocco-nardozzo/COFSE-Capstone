@@ -1,10 +1,17 @@
-// API Reference: https://www.wix.com/velo/reference/api-overview/introduction
-// “Hello, World!” Example: https://learn-code.wix.com/en/article/hello-world
+//DDE Committee Page
+//Primarily focuses on styling with CSS
 
 $w.onReady(function () {
-    // Write your JavaScript here
+    
+    //Higher education header styling
+	const dde = $w("#main-header").text;
+	$w("#main-header").html = `<p style="text-align: center;font-size: 42px;font-family: 'Oswald', sans-serif;">${dde}</p>`;
 
-    // To select an element by ID use: $w('#elementID')
+    //duties header styling
+    const duties = $w("#duties-header").text;
+    $w("#duties-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${duties}</p>`;
 
-    // Click 'Preview' to run your code
+    //committee header
+    const committee = $w("#committee-header").text;
+    $w("#committee-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${committee}</p>`;
 });

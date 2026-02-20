@@ -1,6 +1,5 @@
 //Home Page
 //Primarily focuses on element styling with css and creating links
-//TEST CONNECTION
 
 $w.onReady(function () {
 
@@ -54,21 +53,21 @@ $w.onReady(function () {
 
     //Our Mission header styling
     const ourMission = $w("#our-mission-header").text;
-    $w("#our-mission-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-seriff; font-weight: bold;">${ourMission}</p>`;
+    $w("#our-mission-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${ourMission}</p>`;
 
     //President Message styling
     const presMessage = $w("#pres-message-header").text;
-    $w("#pres-message-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-seriff; font-weight: bold;">${presMessage}</p>`;
+    $w("#pres-message-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${presMessage}</p>`;
 
     //Welcome Header styling
     const welcome = $w("#welcome").text;
-    $w("#welcome").html = `<p style="text-align: center;font-size: 42px;font-family: 'Oswald', sans-seriff;">${welcome}</p>`;
+    $w("#welcome").html = `<p style="text-align: center;font-size: 42px;font-family: 'Oswald', sans-serif;">${welcome}</p>`;
 
     //Resource Header Styling
-    const resources_header = $w("#resources-header").text;
-    $w("#resources-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-seriff; font-weight: bold;">${resources_header}</p>`;
+    const announcements_header = $w("#announcements-header").text;
+    $w("#announcements-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${announcements_header}</p>`;
 
     //Newsletter Header Styling
     const newsletters_header = $w("#newsletter-header").text;
-    $w("#newsletter-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-seriff; font-weight: bold;">${newsletters_header}</p>`;
+    $w("#newsletter-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${newsletters_header}</p>`;
 });
