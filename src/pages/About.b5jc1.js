@@ -77,7 +77,7 @@ $w.onReady(function () {
             340 Fisher Hall<br>
             Pittsburgh, PA 15282<br>
             412-396-1703<br>
-            <a href="mailto:marshallp@duq.edu" style="color: #0000EE;">marshallp@duq.edu</a>
+            <a href="mailto:marshallp@duq.edu" style="color:#87aade;">marshallp@duq.edu</a>
         </p>
     `;
 
@@ -87,7 +87,7 @@ $w.onReady(function () {
             Lyndsie Ferrara, Ph.D.<br>
             339D Fisher Hall<br>
             Pittsburgh, PA 15282<br>
-            <a href="mailto:schantzl@duq.edu" style="color: #0000EE;">schantzl@duq.edu</a>
+            <a href="mailto:schantzl@duq.edu" style="color:#87aade;">schantzl@duq.edu</a>
         </p>
     `;
 
@@ -108,7 +108,7 @@ $w.onReady(function () {
             100 N. University Drive<br>
             Edmond, OK 73034<br>
 			405-974-6922<br>
-            <a href="mailto:cporterfield@uco.edu" style="color: #0000EE;">cporterfield@uco.edu</a>
+            <a href="mailto:cporterfield@uco.edu" style="color:#87aade;">cporterfield@uco.edu</a>
         </p>
     `;
 
@@ -119,7 +119,29 @@ $w.onReady(function () {
             402 N. Blackford, LD222<br>
             Indianapolis IN 46202<br>
 			317-274-6820<br>
-            <a href="mailto:glondino@iupui.edu" style="color: #0000EE;">glondino@iupui.edu</a>
+            <a href="mailto:glondino@iupui.edu" style="color:#87aade;">glondino@iupui.edu</a>
         </p>
     `;
+
+    const colorBlue = "#87aade";
+
+    // 2. Define the PDF link string
+    const bylaws_pdf = `<a href="https://fbf59b14-1a92-4ba9-a7e6-89c702f37f2b.usrfiles.com/ugd/fbf59b_c8d9d3c8ae4b46fcbb8b69cda8786247.pdf?filename=COFSE-Bylaws-2022.pdf" target="_blank" style="color: ${colorBlue}; font-weight: bold;">Bylaws</a>`;
+
+    // 3. Define the Email link string
+    const emailStr = "cofse.ed@gmail.com";
+    const email_link = `<a href="mailto:${emailStr}" style="color: ${colorBlue}; font-weight: bold;">${emailStr}</a>`;
+
+    // 4. Update the content in two clear steps
+    let content = $w("#Bylaws").html;
+    
+    // First swap: {Bylaws} -> PDF Link
+    content = content.replace("{Bylaws}", bylaws_pdf);
+    
+    // Second swap: {email} -> Email Link
+    content = content.replace("{email}", email_link);
+
+    // 5. Finalize the element
+    $w("#Bylaws").html = content;
+
 });
