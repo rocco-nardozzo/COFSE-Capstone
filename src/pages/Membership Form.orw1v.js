@@ -47,7 +47,7 @@ $w.onReady(function () {
             });
 
             if (!isFormValid) {
-                $w("#submitButton").label = "Please fill all required fields";
+                $w("#submitButton").label = "Not Complete";
                 setTimeout(() => { $w("#submitButton").label = "Submit"; }, 2000);
                 return; 
             }
