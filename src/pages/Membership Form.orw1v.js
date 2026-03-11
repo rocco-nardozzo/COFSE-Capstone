@@ -9,6 +9,7 @@ $w.onReady(function () {
         { "label": "Australia", "value": "Australia" }
     ];
 
+    //Accesses the REST Countries API to populate countries ckecklist with all countries
     fetch("https://restcountries.com/v3.1/all?fields=name", { method: 'get' })
         .then((httpResponse) => {
             if (httpResponse.ok) return httpResponse.json();
@@ -29,7 +30,7 @@ $w.onReady(function () {
         });
 
         $w("#submitButton").onClick(async () => {
-            const allInputs = ["#institution", "#streetAddress", "#streetAddress2", "#city", "#state", "#postal", "#country", "#numberStudents", "#fepac", "#degrees", "#firstName", "#lastName", "#position", "#email", "#phone", "#preferredAddress", "#date", "#signature"];
+            const allInputs = ["#institution", "#streetAddress", "#streetAddress2", "#city", "#state", "#postal", "#country", "#numberStudents", "#fepac", "#degrees", "#programWebsite", "#firstName", "#lastName", "#position", "#email", "#phone", "#date", "#signature"];
 
             let isFormValid = true;
             let invalidElement = null;
