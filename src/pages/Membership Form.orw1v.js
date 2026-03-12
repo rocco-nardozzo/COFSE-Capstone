@@ -1,7 +1,11 @@
+//DDE Membership Form Page
+//Responsible for containing the membership form that will create a database entry and be sent to DDE president
+
 import { fetch } from 'wix-fetch';
 import { saveAndEmail } from 'backend/emailService';
 
 $w.onReady(function () {
+    //create backup countries for checklist if API is down
     const backupCountries = [
         { "label": "United States", "value": "United States" },
         { "label": "Canada", "value": "Canada" },
@@ -15,12 +19,14 @@ $w.onReady(function () {
             if (httpResponse.ok) return httpResponse.json();
             throw new Error("API is down"); 
         })
+        //coverts from JSON
         .then((json) => {
             const countryOptions = json.map(country => ({
                 "label": country.name.common,
                 "value": country.name.common
             }));
             
+            //sorts by alphabetical order
             countryOptions.sort((a, b) => a.label.localeCompare(b.label));
             $w("#country").options = countryOptions;
         })
@@ -29,12 +35,14 @@ $w.onReady(function () {
             $w("#country").options = backupCountries;
         });
 
+        //actions for when submit button of form is clicked
         $w("#submitButton").onClick(async () => {
             const allInputs = ["#institution", "#streetAddress", "#streetAddress2", "#city", "#state", "#postal", "#country", "#numberStudents", "#fepac", "#degrees", "#programWebsite", "#firstName", "#lastName", "#position", "#email", "#phone", "#date", "#signature"];
 
             let isFormValid = true;
             let invalidElement = null;
 
+            //check that all required fields are entered properly
             allInputs.forEach(id => {
             // @ts-ignore
                 const element = $w(id);
@@ -47,6 +55,7 @@ $w.onReady(function () {
                 }
             });
 
+            //prevent submission if invalid
             if (!isFormValid) {
                 $w("#submitButton").label = "Not Complete";
                 setTimeout(() => { $w("#submitButton").label = "Submit"; }, 2000);
@@ -56,6 +65,7 @@ $w.onReady(function () {
             $w("#submitButton").disable();
             $w("#submitButton").label = "Submitting...";
 
+            //saves submisison entry to Wix database
             let dataToSave = {};
             allInputs.forEach(id => {
                 // @ts-ignore
@@ -66,6 +76,7 @@ $w.onReady(function () {
                 }
             });
 
+            //saves submission in collection and sends triggered email
             try {
                 const result = await saveAndEmail(dataToSave);
 

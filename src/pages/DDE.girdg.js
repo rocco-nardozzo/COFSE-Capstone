@@ -1,9 +1,11 @@
 //DDE Page
 //Primarily focuses on styling with CSS
 
+//importing wixLocation for links
 import wixLocation from 'wix-location';
 $w.onReady(function () {
     
+    //Header and sub header styling
     const dde_header = $w("#Main-DDE-header").text;
 	$w("#Main-DDE-header").html = `<p style="text-align: center;font-size: 42px;font-family: 'Oswald', sans-serif;">${dde_header}</p>`;
 
@@ -25,8 +27,10 @@ $w.onReady(function () {
     const updates = $w("#updates-header").text;
     $w("#updates-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${updates}</p>`;
 
+    //link color
     const colorBlue = "#87aade";
 
+    //replaces templates in Wix editor with links to pdfs and websites
     const chapters_link = `<a href="/international-chapter" target="_self" style="color: ${colorBlue}; font-weight: bold;">chapters</a>`;
     const apply_link = `<a href="/membership-form" target="_self" style="color: ${colorBlue}; font-weight: bold;">here</a>`;
     let content = $w("#par1").html;

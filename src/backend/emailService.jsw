@@ -1,16 +1,23 @@
+//email service backend file
+//responsible for sending triggered email for DDE application submissions
+
 import wixData from 'wix-data';
 import { triggeredEmails, contacts } from 'wix-crm-backend';
 
 export async function saveAndEmail(formData) {
     try {
+        //stores a submission into the DDE database
         await wixData.insert("DDESubmissions", {
             ...formData,
             title: formData.lastName || "New Submission" 
         });
 
+        //creates body of the triggered email and contains values of al the inputs
         const bodyText = Object.keys(formData)
             .map(key => `${key}: ${formData[key]}`).join('\n');
 
+        //target email will be changed to COFSE email and DDE president email
+        //currently mine for testing purposes
         const targetEmails = ["nardozzor@duq.edu"];
 
         const sendPromises = targetEmails.map(async (email) => {
@@ -22,6 +29,7 @@ export async function saveAndEmail(formData) {
 
                 let contactId;
 
+                //creates contacts for all the users that submit a application
                 if (searchResults.items.length > 0) {
                     contactId = searchResults.items[0]._id;
                 } else {
