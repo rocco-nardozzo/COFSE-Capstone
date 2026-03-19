@@ -15,15 +15,58 @@ $w.onReady(async function () {
         const data = await getApplicationForAdmin(applicationId);
         
         if (data) {
-            let details = "";
-            for (const key in data) {
-                if (!key.startsWith('_') && key !== 'title' && key !== 'Reviewed') {
-                    details += `${key.charAt(0).toUpperCase() + key.slice(1)}: ${data[key]}\n\n`;
+            const orderedKeys = [
+                "email",
+                "firstName", 
+                "lastName",
+                "address", 
+                "phone",
+                "jobTitle", 
+                "employer", 
+                "employmentLink", 
+                "aafs", 
+                "memberType", 
+                "engagement", 
+                "facebook", 
+                "twitter", 
+                "linkedIn", 
+                "website"
+            ];
+
+            const labelMap = {
+                firstName: "First Name",
+                lastName: "Last Name",
+                jobTitle: "Job Title",
+                employmentLink: "Employment Link",
+                aafs: "AAFS Member",
+                memberType: "Membership Type",
+                linkedIn: "LinkedIn Profile"
+            };
+
+            let details = `\n`;
+
+            orderedKeys.forEach(key => {
+                if (data[key] !== undefined && data[key] !== null && data[key] !== "") {
+                    const displayLabel = labelMap[key] || (key.charAt(0).toUpperCase() + key.slice(1));
+                    details += `${displayLabel}: ${data[key]}\n\n`;
                 }
-            }
-            $w("#submissionDetails").text = details;
-        } else {
-            $w("#submissionDetails").text = "The application could not be found.";
+            });
+
+            if (data.Reviewed && data.Reviewed !== "Pending") {
+            $w("#approveButton").hide();
+            $w("#declineButton").hide();
+            $w("#submissionDetails").text = `Status: ${data.Reviewed}\n${details}`;
+            } 
+            else {
+                $w("#submissionDetails").text = `Waiting Review\n${details}`;
+                $w("#approveButton").show();
+                $w("#declineButton").show();
+            } 
+        }
+        else {
+            $w("#submissionDetails").text = "The application could not be found in the database.";
+            $w("#approveButton").hide();
+            $w("#declineButton").hide();
         }
     } catch (err) {
         console.error("Load error:", err);
