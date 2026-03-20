@@ -34,14 +34,15 @@ export async function saveAndEmail(formData) {
                     contactId = searchResults.items[0]._id;
                 } else {
                     const newContact = await contacts.createContact({
-                        info: {
-                            emails: [{ email: email, primary: true }],
-                            name: { 
-                                first: formData.firstName || "New", 
-                                last: formData.lastName || "Submission" 
-                            }
-                        }
-                    }, { "suppressAuth": true });
+                        name: {
+                            first: "DDE",
+                            last: "Admin"
+                        },
+                        emails: [{
+                            email: email,
+                            tag: "MAIN"
+                        }]
+                    }, { suppressAuth: true });
                     contactId = newContact._id;
                 }
 

@@ -21,6 +21,23 @@ export async function saveAndEmail(formData) {
         //currently mine for testing purposes
         const reviewLink = `https://nardozzor.wixsite.com/council-of-forensic/admin-review?id=${newItem._id}`;
 
+        const applicantSearch = await contacts.queryContacts()
+            .eq("info.emails.email", formData.email)
+            .find({ suppressAuth: true });
+
+        if (applicantSearch.items.length === 0) {
+            await contacts.createContact({
+                name: {
+                    first: formData.firstName,
+                    last: formData.lastName
+                },
+                emails: [{
+                    email: formData.email,
+                    tag: "MAIN"
+                }]
+            }, { suppressAuth: true });
+        }
+
         const targetEmails = ["nardozzor@duq.edu"];
 
         const sendPromises = targetEmails.map(async (email) => {
@@ -36,19 +53,16 @@ export async function saveAndEmail(formData) {
                 if (searchResults.items.length > 0) {
                     contactId = searchResults.items[0]._id;
                 } else {
-                    const contactInfo = {
-                    firstName: formData.firstName || "COFSE",
-                    lastName: formData.lastName || "Applicant",
+                    const newContact = await contacts.createContact({
+                        name: {
+                        first: "COFSE",
+                        last: "Admin"
+                    },
                     emails: [{
                         email: email,
-                        primary: true
+                        tag: "MAIN"
                     }]
-                };
-
-    // Use the variable directly in the 'info' field
-                const newContact = await contacts.createContact({
-                info: contactInfo
-                }, { "suppressAuth": true })
+                }, { suppressAuth: true });
 
                     contactId = newContact._id;
                 }
