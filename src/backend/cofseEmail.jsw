@@ -3,6 +3,9 @@
 
 import wixData from 'wix-data';
 import { triggeredEmails, contacts } from 'wix-crm-backend';
+import { members } from 'wix-members-backend';
+import { authentication } from 'wix-members-backend';
+import { elevate } from 'wix-auth';
 
 export async function saveAndEmail(formData) {
     try {
@@ -92,13 +95,30 @@ export async function updateApplicationStatus(id, status) {
     if (!id) return { success: false, error: "No ID provided" };
 
     try {
-        const item = await wixData.get("cofseApplications", id, { "suppressAuth": true });
-        if (item) {
-            item.Reviewed = status;
-            await wixData.update("cofseApplications", item, { "suppressAuth": true });
-            return { success: true };
+        const item = await wixData.get("cofseApplications", id, { suppressAuth: true });
+        if (!item) return { success: false, error: "Submission not found" };
+
+        item.Reviewed = status;
+        await wixData.update("cofseApplications", item, { suppressAuth: true });
+
+        if (status === "Accepted") {
+            console.log("Looking up contact for:", item.email);
+
+            const elevatedQueryContacts = elevate(contacts.queryContacts);
+            const applicantSearch = await elevatedQueryContacts()
+                .eq("info.emails.email", item.email)
+                .find();
+            console.log("Contact search done, found:", applicantSearch.items.length);
+
+            await elevate(authentication.register)(item.email, "COFSE123!", {
+                contactInfo: {
+                    firstName: item.firstName,
+                    lastName: item.lastName
+                }
+            });
+            console.log("Member created successfully");
         }
-        return { success: false, error: "Submission not found" };
+        return { success: true };
     } catch (err) {
         console.error("Error updating status:", err);
         return { success: false, error: err.message };
