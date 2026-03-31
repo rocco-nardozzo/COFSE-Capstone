@@ -116,6 +116,25 @@ export async function updateApplicationStatus(id, status) {
                     lastName: item.lastName
                 }
             });
+
+            await new Promise(resolve => setTimeout(resolve, 3000));
+
+            const newSearch = await elevatedQueryContacts()
+                .eq("info.emails.email", item.email)
+                .find();
+
+            const oldContactId = applicantSearch.items.length > 0 ? applicantSearch.items[0]._id : null;
+            const newContact = newSearch.items.find(c => c._id !== oldContactId);
+
+            if (newContact) {
+                console.log("Sending approval email to contactId:", newContact._id);
+                await triggeredEmails.emailContact('memberApproved', newContact._id, {}, { suppressAuth: true });
+                console.log("Approval email sent successfully");
+            }
+
+            if (oldContactId) {
+                await elevate(contacts.deleteContact)(oldContactId);
+            }
             console.log("Member created successfully");
         }
         return { success: true };
