@@ -97,7 +97,8 @@ $w.onReady(function () {
             Andra Lewis, Ph.D.<br>
             100 College Drive<br>
             Allentown, PA 18104<br>
-            610-606-4666, ext. 3495
+            610-606-4666, ext. 3495<br>
+            <a href="mailto:andra.lewis@cedarcrest.edu" style="color:#87aade;">andra.lewis@cedarcrest.edu</a>
         </p>
     `;
 
@@ -116,10 +117,10 @@ $w.onReady(function () {
 	$w("#past-pres-box").html = `
         <p style="text-align: center; font-size: 14px; font-family: 'Questrial', sans-serif;">
             Gina Londino-Smolar, Ed.D.<br>
-            402 N. Blackford, LD222<br>
+            402 N. Blackford, LD 326<br>
             Indianapolis IN 46202<br>
 			317-274-6820<br>
-            <a href="mailto:glondino@iupui.edu" style="color:#87aade;">glondino@iupui.edu</a>
+            <a href="mailto:glondino@iu.edu" style="color:#87aade;">glondino@iu.edu</a>
         </p>
     `;
 
