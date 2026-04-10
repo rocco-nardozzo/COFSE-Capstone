@@ -13,12 +13,6 @@ $w.onReady(function () {
 	//Add paragraph 1 link in the correct spot of the paragraph
 	$w("#JFSE-par1").html = JFSE_par1HTML.replace("{LINK}", par1Link);
 
-	//Create link for paragraph 2
-	let JFSE_par2HTML = $w("#JFSE-par2").html;
-	const par2Link = `<a href="https://jfse-ojs-tamu.tdl.org/jfse/index.php/jfse" target="_blank" style="color:#87aade; font-weight:bold;">The Journal of Forensic Science Education website</a>`;
-	//Add paragraph 2 link in the correct spot
-	$w("#JFSE-par2").html = JFSE_par2HTML.replace("{LINK}", par2Link);
-
 	//Bold the first sentence of paragraph 3
 	let JFSE_par3HTML = $w("#JFSE-par3").html;
 	const sentence = "We invite you to contribute to the journal.";

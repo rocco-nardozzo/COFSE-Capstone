@@ -75,4 +75,7 @@ $w.onReady(function () {
 
     const mazzanti = $w("#mazzanti").text;
     $w("#mazzanti").html = `<p style="text-align: center;"><a href="https://fbf59b14-1a92-4ba9-a7e6-89c702f37f2b.usrfiles.com/ugd/fbf59b_7d4073f59e0e44cebfe4fee1de753cdb.pdf?UG-vs-Grad_AAFS-2014.pdf" target="_blank" style="color: ${colorBlue}; font-weight: bold;">${mazzanti}</a></p>`;
+
+    $w("#back").link = "/member-resources";
+	$w("#back").target = "_self";
 });

@@ -45,4 +45,7 @@ $w.onReady(async function () {
 
     const text07 = $w("#text-2007").text;
     $w("#text-2007").html = `<p style="text-align: center;"><a href="https://fbf59b14-1a92-4ba9-a7e6-89c702f37f2b.usrfiles.com/ugd/fbf59b_afe90f9b0abc43a7b7f33c9b9a6e126b.pdf?2007-COFSE-Annual-Meetings.pdf" target="_blank" style="color: ${colorBlue}; font-weight: bold;">${text07}</a></p>`;
+
+    $w("#back").link = "/member-resources";
+	$w("#back").target = "_self";
 });

@@ -28,6 +28,8 @@ $w.onReady(function () {
     const members = $w("#Members").text;
     $w("#Members").html = `<p style="text-align: center;font-size: 20px;font-family: 'Oswald', sans-serif; font-style: italic; text-decoration: underline;">${members}</p>`;
 
+    $w("#back").link = "/committees";
+	$w("#back").target = "_self";
 
     const colorBlue = "#87aade";
     const fontSize = "18px";
@@ -39,6 +41,7 @@ $w.onReady(function () {
         if (emailRegex.test(element.text)) {
             emailRegex.lastIndex = 0;
 
+            // @ts-ignore
             element.html = element.html.replace(emailRegex, (match) => {
                 return `<a href="mailto:${match}" style="color: ${colorBlue}; font-family: ${fontName}; font-size: ${fontSize};">${match}</a>`;
             });

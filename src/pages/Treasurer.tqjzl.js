@@ -7,4 +7,7 @@ $w.onReady(function () {
 	const treasurer = $w("#treasurer-header").text;
 	$w("#treasurer-header").html = `<p style="text-align: center;font-size: 42px;font-family: 'Oswald', sans-serif;">${treasurer}</p>`;
 
+	$w("#back").link = "/about";
+	$w("#back").target = "_self";
+
 });

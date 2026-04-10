@@ -21,12 +21,14 @@ $w.onReady(function () {
         })
         //coverts from JSON
         .then((json) => {
+            //@ts-ignore
             const countryOptions = json.map(country => ({
                 "label": country.name.common,
                 "value": country.name.common
             }));
             
             //sorts by alphabetical order
+            //@ts-ignore
             countryOptions.sort((a, b) => a.label.localeCompare(b.label));
             $w("#country").options = countryOptions;
         })
@@ -40,6 +42,7 @@ $w.onReady(function () {
             const allInputs = ["#institution", "#streetAddress", "#streetAddress2", "#city", "#state", "#postal", "#country", "#numberStudents", "#fepac", "#degrees", "#programWebsite", "#firstName", "#lastName", "#position", "#email", "#phone", "#date", "#signature"];
 
             let isFormValid = true;
+            //@ts-ignore
             let invalidElement = null;
 
             //check that all required fields are entered properly
@@ -49,6 +52,7 @@ $w.onReady(function () {
                 
                 if (element && !element.valid) {
                     isFormValid = false;
+                    //@ts-ignore
                     if (!invalidElement) invalidElement = element;
                     
                     element.updateValidityIndication(); 
@@ -72,6 +76,7 @@ $w.onReady(function () {
                 const element = $w(id);
                 if (element) {
                     const key = id.replace('#', '');
+                    //@ts-ignore
                     dataToSave[key] = element.value;
                 }
             });
@@ -92,4 +97,7 @@ $w.onReady(function () {
                 $w("#submitButton").label = "Try Again";
             }
         });
+
+        $w("#back").link = "/dde";
+	    $w("#back").target = "_self";
 });

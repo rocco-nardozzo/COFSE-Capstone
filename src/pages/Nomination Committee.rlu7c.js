@@ -25,12 +25,17 @@ $w.onReady(function () {
     const fontSize = "18px";
     const fontName = "questrial";
 
+    $w("#back").link = "/committees";
+	$w("#back").target = "_self";
+
+
     $w("#info").children.filter(item => item.type === "$w.Text").forEach(element => {
         const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
 
         if (emailRegex.test(element.text)) {
             emailRegex.lastIndex = 0;
 
+            //@ts-ignore
             element.html = element.html.replace(emailRegex, (match) => {
                 return `<a href="mailto:${match}" style="color: ${colorBlue}; font-family: ${fontName}; font-size: ${fontSize};">${match}</a>`;
             });

@@ -14,4 +14,7 @@ $w.onReady(function () {
     //committee header
     const committee = $w("#committee-header").text;
     $w("#committee-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${committee}</p>`;
+
+    $w("#back").link = "/committees";
+	$w("#back").target = "_self";
 });

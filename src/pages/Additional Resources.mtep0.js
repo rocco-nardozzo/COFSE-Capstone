@@ -15,4 +15,7 @@ $w.onReady(function () {
 
     const ascld = $w("#ascld").text;
     $w("#ascld").html = `<p style="text-align: center;"><a href="https://fbf59b14-1a92-4ba9-a7e6-89c702f37f2b.usrfiles.com/ugd/fbf59b_81d7f8f83a434456b9a8d09e34cbb4b0.pdf?ASCLD-FRC-presentation.pdf" target="_blank" style="color: ${colorBlue}; font-weight: bold;">${ascld}</a></p>`;
+
+    $w("#back").link = "/member-resources";
+	$w("#back").target = "_self";
 });

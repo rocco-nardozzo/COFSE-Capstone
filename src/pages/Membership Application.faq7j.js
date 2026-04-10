@@ -8,6 +8,7 @@ $w.onReady(function () {
             const allInputs = ["#email", "#firstName", "#lastName", "#address", "#phone", "#jobTitle", "#employer", "#employmentLink", "#aafs", "#memberType", "#engagement", "#facebook", "#twitter", "#linkedIn", "#website"];
 
             let isFormValid = true;
+            //@ts-ignore
             let invalidElement = null;
 
             //check that all required fields are entered properly
@@ -17,6 +18,7 @@ $w.onReady(function () {
                 
                 if (element && !element.valid) {
                     isFormValid = false;
+                    //@ts-ignore
                     if (!invalidElement) invalidElement = element;
                     
                     element.updateValidityIndication(); 
@@ -40,6 +42,7 @@ $w.onReady(function () {
                 const element = $w(id);
                 if (element) {
                     const key = id.replace('#', '');
+                    //@ts-ignore
                     dataToSave[key] = element.value;
                 }
             });
@@ -60,4 +63,7 @@ $w.onReady(function () {
                 $w("#submit-button").label = "Try Again";
             }
         });
+
+        $w("#back").link = "/membership";
+	    $w("#back").target = "_self";
 });
