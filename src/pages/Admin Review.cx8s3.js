@@ -47,6 +47,7 @@ $w.onReady(async function () {
 
             orderedKeys.forEach(key => {
                 if (data[key] !== undefined && data[key] !== null && data[key] !== "") {
+                    //@ts-ignore
                     const displayLabel = labelMap[key] || (key.charAt(0).toUpperCase() + key.slice(1));
                     details += `${displayLabel}: ${data[key]}\n\n`;
                 }
@@ -77,6 +78,7 @@ $w.onReady(async function () {
     $w("#declineButton").onClick(() => handleUpdate(applicationId, "Declined", "#declineButton"));
 });
 
+//@ts-ignore
 async function handleUpdate(id, status, buttonId) {
     $w("#approveButton").disable();
     $w("#declineButton").disable();

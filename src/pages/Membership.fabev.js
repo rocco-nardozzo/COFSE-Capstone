@@ -24,15 +24,6 @@ $w.onReady(function () {
     const sponsoring = $w("#sponsoring-member").text;
     $w("#sponsoring-member").html = `<p style="text-align: center;font-size: 20px;font-family: 'Oswald', sans-serif; font-weight: bold;">${sponsoring}</p>`;
 
-    //link that links to COFSE application
-    const apply_link = `<a href="/membership-application" target="_self" style="color: ${colorBlue}; font-weight: bold;">here</a>`;
-    let apply = $w("#apply").html;
-    apply = apply.split("{here}").join(apply_link);
-    $w("#apply").html = apply;
-
-    //link that links to member log in page to gain access to member only page
-    const login_link = `<a href="/member-login" target="_self" style="color: ${colorBlue}; font-weight: bold;">here</a>`;
-    let login = $w("#login").html;
-    login = login.split("{here}").join(login_link);
-    $w("#login").html = login;
+    $w("#apply").link = "/membership-application";
+	$w("#apply").target = "_self";
 });
