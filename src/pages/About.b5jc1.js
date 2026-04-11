@@ -28,7 +28,7 @@ $w.onReady(function () {
 	const dei_parts = dei_content.split('\n').join('<br>');
 
     //DEI content element styling
-	$w("#DEI-content").html = `<p style="font-size: 16px; font-family: 'Questrial', sans-serif; color: #546E7A; line-height: 1.75;">${dei_parts}</p>`;
+	$w("#DEI-content").html = `<p style="font-size: 18px; font-family: 'Questrial', sans-serif; color: #546E7A; line-height: 1.75;">${dei_parts}</p>`;
 	
     //Links president button to the president page
 	$w("#pres-button").link = "/president";

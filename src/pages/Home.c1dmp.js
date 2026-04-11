@@ -70,4 +70,11 @@ $w.onReady(function () {
     //Newsletter Header Styling
     const newsletters_header = $w("#newsletter-header").text;
     $w("#newsletter-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${newsletters_header}</p>`;
+
+    const colorBlue = "#87aade";
+    const fontSize = "20px";
+    const fontName = "questrial";
+
+    const august = $w("#August-Newsletter").text;
+    $w("#August-Newsletter").html = `<p style="text-align: center; font-family: 'questrial', sans-serif; font-size: 20px;"><a href="https://fbf59b14-1a92-4ba9-a7e6-89c702f37f2b.usrfiles.com/ugd/fbf59b_09d8e837a6aa4539a38d261a5a2cc842.pdf?August-Newsletter.pdf" target="_blank" style="color: ${colorBlue}; font-weight: bold;">${august}</a></p>`;
 });

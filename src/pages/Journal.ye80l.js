@@ -28,7 +28,7 @@ $w.onReady(function () {
 	//Create paragraph 6 link
 	const JFSEpar6_URL = "https://doaj.org/toc/2641-8533?source=%7B%22query%22%3A%7B%22filtered%22%3A%7B%22filter%22%3A%7B%22bool%22%3A%7B%22must%22%3A%5B%7B%22terms%22%3A%7B%22index.issn.exact%22%3A%5B%222641-8533%22%5D%7D%7D%5D%7D%7D%2C%22query%22%3A%7B%22match_all%22%3A%7B%7D%7D%7D%7D%2C%22size%22%3A100%2C%22sort%22%3A%5B%7B%22created_date%22%3A%7B%22order%22%3A%22desc%22%7D%7D%5D%2C%22_source%22%3A%7B%7D%7D";
 	const JFSEpar6_text = "JFSE is now indexed in the the Directory of Open Access Journals (DOAJ).";
-	const JFSEpar6_link = `<p><a href="${JFSEpar6_URL}" target="_blank" style="color:#87aade; font-weight:bold;">${JFSEpar6_text}</a></p>`;
+	const JFSEpar6_link = `<p style="font-family: 'questrial', sans-serif; font-size: 18px;"><a href="${JFSEpar6_URL}" target="_blank" style="color:#87aade; font-weight:bold;">${JFSEpar6_text}</a></p>`;
 	//Add link for paragraph 6 in correct spot
 	$w("#JFSE-par6").html = JFSEpar6_link;
 

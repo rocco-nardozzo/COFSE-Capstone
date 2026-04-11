@@ -11,7 +11,7 @@ $w.onReady(function () {
 
 	//Linking membership and outreach header to the appropriate page
 	const membership = $w("#membership-link").text;
-    $w("#membership-link").html = `<p style="text-align: center;font-size: 20px;font-family: 'Oswald', sans-serif; font-weight: bold; text-decoration: underline;">${membership}</p>`;
+    $w("#membership-link").html = `<p style="text-align: center;font-size: 22px;font-family: 'Oswald', sans-serif; font-weight: bold; text-decoration: underline;">${membership}</p>`;
 
 	$w("#membership-link").onClick(() => {
         wixLocation.to("/membership-and-outreach-committee"); 
@@ -19,7 +19,7 @@ $w.onReady(function () {
 
 	//Linking higher education header to the appropriate page
 	const higher = $w("#higher-edu-link").text;
-    $w("#higher-edu-link").html = `<p style="text-align: center;font-size: 20px;font-family: 'Oswald', sans-serif; font-weight: bold; text-decoration: underline;">${higher}</p>`;
+    $w("#higher-edu-link").html = `<p style="text-align: center;font-size: 22px;font-family: 'Oswald', sans-serif; font-weight: bold; text-decoration: underline;">${higher}</p>`;
 
 	$w("#higher-edu-link").onClick(() => {
         wixLocation.to("/higher-education-committee"); 
@@ -28,7 +28,7 @@ $w.onReady(function () {
 	////Linking K-12 header to the appropriate page
 
 	const k_12 = $w("#k-12-link").text;
-    $w("#k-12-link").html = `<p style="text-align: center;font-size: 20px;font-family: 'Oswald', sans-serif; font-weight: bold; text-decoration: underline;">${k_12}</p>`;
+    $w("#k-12-link").html = `<p style="text-align: center;font-size: 22px;font-family: 'Oswald', sans-serif; font-weight: bold; text-decoration: underline;">${k_12}</p>`;
 
 	$w("#k-12-link").onClick(() => {
         wixLocation.to("/k-12-education-committee"); 
@@ -37,7 +37,7 @@ $w.onReady(function () {
 	//Linking research header to the appropriate page
 
 	const research = $w("#research-link").text;
-    $w("#research-link").html = `<p style="text-align: center;font-size: 20px;font-family: 'Oswald', sans-serif; font-weight: bold; text-decoration: underline;">${research}</p>`;
+    $w("#research-link").html = `<p style="text-align: center;font-size: 22px;font-family: 'Oswald', sans-serif; font-weight: bold; text-decoration: underline;">${research}</p>`;
 
 	$w("#research-link").onClick(() => {
         wixLocation.to("/research-committee"); 
@@ -45,7 +45,7 @@ $w.onReady(function () {
 
 	//Linking nominating header to the appropriate page
 	const nominating = $w("#nominating-committee").text;
-    $w("#nominating-committee").html = `<p style="text-align: center;font-size: 20px;font-family: 'Oswald', sans-serif; font-weight: bold; text-decoration: underline;">${nominating}</p>`;
+    $w("#nominating-committee").html = `<p style="text-align: center;font-size: 22px;font-family: 'Oswald', sans-serif; font-weight: bold; text-decoration: underline;">${nominating}</p>`;
 
 	$w("#nominating-committee").onClick(() => {
         wixLocation.to("/nomination-committee"); 
@@ -53,7 +53,7 @@ $w.onReady(function () {
 
 	//Linking DDE header to the appropriate page
 	const DDE = $w("#DDE-link").text;
-    $w("#DDE-link").html = `<p style="text-align: center;font-size: 20px;font-family: 'Oswald', sans-serif; font-weight: bold; text-decoration: underline;">${DDE}</p>`;
+    $w("#DDE-link").html = `<p style="text-align: center;font-size: 22px;font-family: 'Oswald', sans-serif; font-weight: bold; text-decoration: underline;">${DDE}</p>`;
 
 	$w("#DDE-link").onClick(() => {
         wixLocation.to("/dde-committee"); 
