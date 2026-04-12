@@ -22,11 +22,13 @@ $w.onReady(async function () {
                 "address", 
                 "phone",
                 "jobTitle", 
-                "employer", 
+                "employer",
+                "supervisor", 
                 "employmentLink", 
                 "aafs", 
                 "memberType", 
-                "engagement", 
+                "engagement",
+                "experience",
                 "facebook", 
                 "twitter", 
                 "linkedIn", 
@@ -46,11 +48,14 @@ $w.onReady(async function () {
             let details = `\n`;
 
             orderedKeys.forEach(key => {
-                if (data[key] !== undefined && data[key] !== null && data[key] !== "") {
+                //@ts-ignore
+                const displayLabel =
                     //@ts-ignore
-                    const displayLabel = labelMap[key] || (key.charAt(0).toUpperCase() + key.slice(1));
-                    details += `${displayLabel}: ${data[key]}\n\n`;
-                }
+                    labelMap[key] || (key.charAt(0).toUpperCase() + key.slice(1));
+
+                const value = data[key];
+
+                details += `${displayLabel}: ${value}\n\n`;
             });
 
             if (data.Reviewed && data.Reviewed !== "Pending") {
