@@ -144,6 +144,53 @@ export async function updateApplicationStatus(id, status) {
     }
 }
 
+export async function bulkCreateContacts() {
+    console.log("bulkCreateContacts started");
+    const results = await wixData.query("cofseApplications")
+        .eq("review", "Pending")
+        .limit(25)
+        .find({ suppressAuth: true });
+
+     console.log("Query results:", results.items.length);
+
+    if (results.items.length === 0) {
+        return { processed: 0, hasMore: false };
+    }
+
+    for (const item of results.items) {
+        try {
+            const applicantSearch = await contacts.queryContacts()
+                .eq("info.emails.email", item.email)
+                .find({ suppressAuth: true });
+
+            if (applicantSearch.items.length === 0) {
+                await contacts.createContact({
+                    name: {
+                        first: item.firstName,
+                        last: item.lastName
+                    },
+                    emails: [{
+                        email: item.email,
+                        tag: "MAIN"
+                    }]
+                }, { suppressAuth: true });
+            }
+
+            item.Reviewed = "Accepted";
+            await wixData.update("cofseApplications", item, { suppressAuth: true });
+
+            await new Promise(r => setTimeout(r, 500));
+        } catch (err) {
+            console.error("Failed contact:", item.email, err);
+        }
+    }
+
+    return {
+        processed: results.items.length,
+        hasMore: results.items.length === 25
+    };
+}
+
 export async function getApplicationForAdmin(id) {
     if (!id) return null;
     
