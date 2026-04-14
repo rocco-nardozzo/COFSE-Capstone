@@ -18,10 +18,6 @@ $w.onReady(function () {
 		wixLocation.to("/workshops");
 	});
 
-	$w("#directory").onClick(() => {
-		wixLocation.to("/member-directory");
-	});
-
 	$w("#additional-resources").onClick(() => {
 		wixLocation.to("/additional-resources");
 	});

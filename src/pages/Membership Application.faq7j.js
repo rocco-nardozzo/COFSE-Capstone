@@ -5,7 +5,7 @@ import { saveAndEmail } from 'backend/cofseEmail';
 
 $w.onReady(function () {
     $w("#submit-button").onClick(async () => {
-            const allInputs = ["#email", "#firstName", "#lastName", "#address", "#phone", "#jobTitle", "#employer", "#supervisor", "#employmentLink", "#aafs", "#memberType", "#engagement", "#experience", "#facebook", "#twitter", "#linkedIn", "#website"];
+            const allInputs = ["#email", "#firstName", "#lastName", "#address", "#phone", "#jobTitle", "#employer", "#supervisor", "#supervisorEmail", "#employmentLink", "#aafs", "#memberType", "#engagement", "#experience", "#facebook", "#twitter", "#linkedIn", "#website"];
 
             let isFormValid = true;
             //@ts-ignore

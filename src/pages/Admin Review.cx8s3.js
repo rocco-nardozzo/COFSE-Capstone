@@ -23,7 +23,8 @@ $w.onReady(async function () {
                 "phone",
                 "jobTitle", 
                 "employer",
-                "supervisor", 
+                "supervisor",
+                "supervisorEmail", 
                 "employmentLink", 
                 "aafs", 
                 "memberType", 
@@ -42,7 +43,8 @@ $w.onReady(async function () {
                 employmentLink: "Employment Link",
                 aafs: "AAFS Member",
                 memberType: "Membership Type",
-                linkedIn: "LinkedIn Profile"
+                linkedIn: "LinkedIn Profile",
+                supervisorEmail: "Supervisor Email"
             };
 
             let details = `\n`;
