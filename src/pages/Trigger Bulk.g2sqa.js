@@ -1,6 +1,12 @@
+//Trigger Bulk Page
+//Used to make cofse submission database records a contact when importing current members
+//should never have to be used again and page is now hidden
+//WILL NOT NEED MODIFIED
+
 import { bulkCreateContacts } from 'backend/cofseEmail';
 
 $w.onReady(function () {
+    //when button is clicked, start process of converting 25 records in cofse database to a contact
     $w('#button1').onClick(async () => {
         $w('#button1').disable();
         let totalProcessed = 0;

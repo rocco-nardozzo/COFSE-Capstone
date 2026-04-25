@@ -1,5 +1,6 @@
 //email service backend file
 //responsible for sending triggered email for DDE application submissions
+//SHOULD NEVER HAVE TO BE MODIIFED
 
 import wixData from 'wix-data';
 import { triggeredEmails, contacts } from 'wix-crm-backend';
@@ -29,7 +30,7 @@ export async function saveAndEmail(formData) {
 
                 let contactId;
 
-                //creates contacts for all the users that submit a application
+                //creates contacts for all the users that submit a application and sends the email with details
                 if (searchResults.items.length > 0) {
                     contactId = searchResults.items[0]._id;
                 } else {

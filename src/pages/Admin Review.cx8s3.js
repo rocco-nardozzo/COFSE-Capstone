@@ -1,9 +1,16 @@
+//Admin Review Page Link
+//Allows admin to review COFSE membership applications and approve or deny
+//Approving automatically makes user a member
+//MAJORITY OF CODE SHOULD NOT BE CHANGED
+//I will highlight where code will need to be changed if fields are added or removed from application
+
 import wixLocation from 'wix-location';
 import { updateApplicationStatus, getApplicationForAdmin } from 'backend/cofseEmail';
 
 $w.onReady(async function () {
     const applicationId = wixLocation.query.id;
 
+    //no application found
     if (!applicationId) {
         $w("#submissionDetails").text = "Submission not found.";
         $w("#approveButton").hide();
@@ -14,6 +21,8 @@ $w.onReady(async function () {
     try {
         const data = await getApplicationForAdmin(applicationId);
         
+        //Add or remove fields to match the application form
+        //name should match the ID created for the input in Wix Velo
         if (data) {
             const orderedKeys = [
                 "email",
@@ -36,6 +45,7 @@ $w.onReady(async function () {
                 "website"
             ];
 
+            //makes the two word fields easier to read
             const labelMap = {
                 firstName: "First Name",
                 lastName: "Last Name",
@@ -49,6 +59,7 @@ $w.onReady(async function () {
 
             let details = `\n`;
 
+            //orders the field names in alphabetical order on page
             orderedKeys.forEach(key => {
                 //@ts-ignore
                 const displayLabel =
@@ -60,6 +71,7 @@ $w.onReady(async function () {
                 details += `${displayLabel}: ${value}\n\n`;
             });
 
+            //prints the staus of the review
             if (data.Reviewed && data.Reviewed !== "Pending") {
             $w("#approveButton").hide();
             $w("#declineButton").hide();
@@ -85,6 +97,7 @@ $w.onReady(async function () {
     $w("#declineButton").onClick(() => handleUpdate(applicationId, "Declined", "#declineButton"));
 });
 
+//Updates status of review and calls method from backend to actually make user a member
 //@ts-ignore
 async function handleUpdate(id, status, buttonId) {
     $w("#approveButton").disable();

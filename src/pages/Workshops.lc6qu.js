@@ -1,9 +1,12 @@
-// API Reference: https://www.wix.com/velo/reference/api-overview/introduction
-// “Hello, World!” Example: https://learn-code.wix.com/en/article/hello-world
+//worksops page
+//contains member only workshop resources
 
 $w.onReady(function () {
     const colorBlue = "#87aade";
 
+    //each workshop linking and styling: Questrial 18 centered
+    //Links text to correct resource pdf
+    //OVERRIDES THE STYLING ON EDIT PAGE
     const zoom = $w("#zoom").text;
     $w("#zoom").html = `<p style="text-align: center; font-family: 'questrial', sans-serif; font-size: 18px;"><a href="https://us02web.zoom.us/rec/component-page?eagerLoadZvaPages=sidemenu.billing.plan_management&accessLevel=meeting&hasValidToken=false&clusterId=us02&action=play&filePlayId=&componentName=recording-register&meetingId=EHQJNqKjJNo0uVmtgFA8cX2p6cMTGGzWa9yj_0Z7NRWriSdD5u8vQfeyTA4EzYS3.DuUaeiymnVTdnPyz&originRequestUrl=https%3A%2F%2Fus02web.zoom.us%2Frec%2Fshare%2F7XaH8C9O4bsD51I5QxDuzoD1WkbP4p73UshicdcX3TArHU87ZD2IahGgqdRm7T9q.b00GDXLTGweJfdHh" target="_blank" style="color: ${colorBlue}; font-weight: bold;">${zoom}</a></p>`;
 
@@ -76,6 +79,7 @@ $w.onReady(function () {
     const mazzanti = $w("#mazzanti").text;
     $w("#mazzanti").html = `<p style="text-align: center; font-family: 'questrial', sans-serif; font-size: 18px;"><a href="https://fbf59b14-1a92-4ba9-a7e6-89c702f37f2b.usrfiles.com/ugd/fbf59b_7d4073f59e0e44cebfe4fee1de753cdb.pdf?UG-vs-Grad_AAFS-2014.pdf" target="_blank" style="color: ${colorBlue}; font-weight: bold;">${mazzanti}</a></p>`;
 
+    //create back button
     $w("#back").link = "/member-resources";
 	$w("#back").target = "_self";
 });

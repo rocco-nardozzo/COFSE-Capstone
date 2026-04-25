@@ -1,10 +1,14 @@
-// API Reference: https://www.wix.com/velo/reference/api-overview/introduction
-// “Hello, World!” Example: https://learn-code.wix.com/en/article/hello-world
+//Members Application Page
+//creates COFSE member application form
+//ONLY THING THAT MAY NEED CHANGED IS FIRST LINE IF APPLICATION FIELDS CHANGE
+//NOTHING ELSE NEEDS MODIFIED
 import { saveAndEmail } from 'backend/cofseEmail';
 
 
 $w.onReady(function () {
     $w("#submit-button").onClick(async () => {
+            //ADD or SUBTRACT FIELD BASED ON FIELDS IN APPLICATION FORM AND DATABASE
+            //MUST USE SAME NAME AS ID FOR THE INPUT CREATED IN WIX VELO
             const allInputs = ["#email", "#firstName", "#lastName", "#address", "#phone", "#jobTitle", "#employer", "#supervisor", "#supervisorEmail", "#employmentLink", "#aafs", "#memberType", "#engagement", "#experience", "#facebook", "#twitter", "#linkedIn", "#website"];
 
             let isFormValid = true;
@@ -68,6 +72,7 @@ $w.onReady(function () {
             }
         });
 
+        //create back button
         $w("#back").link = "/membership";
 	    $w("#back").target = "_self";
 });

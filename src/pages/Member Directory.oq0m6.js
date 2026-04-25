@@ -1,7 +1,10 @@
-// API Reference: https://www.wix.com/velo/reference/api-overview/introduction
-// “Hello, World!” Example: https://learn-code.wix.com/en/article/hello-world
+//Member Directory Page
+//Currently blank as there is no updated directory
+//currently hidden from member resources page
+//additions only need made if directory is added
 
 $w.onReady(function () {
+    //creates back button in case it will be used
     $w("#back").link = "/member-resources";
 	$w("#back").target = "_self";
 });

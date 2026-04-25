@@ -1,36 +1,50 @@
 //DDE Page
 //Primarily focuses on styling with CSS
 
-//importing wixLocation for links
 import wixLocation from 'wix-location';
 $w.onReady(function () {
     
-    //Header and sub header styling
+    //DDE header styling: Oswald 42 point centered
+    //OVERRIDES THE STYLING ON EDIT PAGE
     const dde_header = $w("#Main-DDE-header").text;
 	$w("#Main-DDE-header").html = `<p style="text-align: center;font-size: 42px;font-family: 'Oswald', sans-serif;">${dde_header}</p>`;
 
+    //Misison header styling: Oswald 24 point centered and bold
+    //OVERRIDES THE STYLING ON EDIT PAGE
     const mission = $w("#mission-header").text;
     $w("#mission-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${mission}</p>`;
 
+    //Chapter header styling: Oswald 24 point centered and bold
+    //OVERRIDES THE STYLING ON EDIT PAGE
     const chapter = $w("#chapter-header").text;
     $w("#chapter-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${chapter}</p>`;
 
+    //Student Membership header styling: Oswald 24 point centered and bold
+    //OVERRIDES THE STYLING ON EDIT PAGE
     const student = $w("#student-header").text;
     $w("#student-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${student}</p>`;
 
+    //Cnstitution header styling: Oswald 24 point centered and bold
+    //OVERRIDES THE STYLING ON EDIT PAGE
     const constitution = $w("#constitution-header").text;
     $w("#constitution-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${constitution}</p>`;
 
+    //Medallions header styling: Oswald 24 point centered and bold
+    //OVERRIDES THE STYLING ON EDIT PAGE
     const medallions = $w("#medallions-header").text;
     $w("#medallions-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${medallions}</p>`;
 
+    //Updates header styling: Oswald 24 point centered and bold
+    //OVERRIDES THE STYLING ON EDIT PAGE
     const updates = $w("#updates-header").text;
     $w("#updates-header").html = `<p style="text-align: center;font-size: 24px;font-family: 'Oswald', sans-serif; font-weight: bold;">${updates}</p>`;
 
     //link color
     const colorBlue = "#87aade";
 
-    //replaces templates in Wix editor with links to pdfs and websites
+    //all code below replaces templates in Wix editor with links to appropriate pdfs and websites
+    //styling: light blue and bold
+    //OVERRIDES THE STYLING ON EDIT PAGE
     const chapters_link = `<a href="/international-chapter" target="_self" style="color: ${colorBlue}; font-weight: bold;">chapters</a>`;
     const apply_link = `<a href="/membership-form" target="_self" style="color: ${colorBlue}; font-weight: bold;">here</a>`;
     let content = $w("#par1").html;

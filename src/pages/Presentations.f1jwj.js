@@ -1,9 +1,12 @@
-// API Reference: https://www.wix.com/velo/reference/api-overview/introduction
-// “Hello, World!” Example: https://learn-code.wix.com/en/article/hello-world
+//Presentations Page
+//Contains the presentation member only resources
 
 $w.onReady(function () {
     const colorBlue = "#87aade";
 
+    //each presentation linking and styling: Questrial 18 centered
+    //Links text to correct resource pdf
+    //OVERRIDES THE STYLING ON EDIT PAGE
     const part1 = $w("#part1").text;
     $w("#part1").html = `<p style="text-align: center; font-family: 'questrial', sans-serif; font-size: 18px;"><a href="https://fbf59b14-1a92-4ba9-a7e6-89c702f37f2b.usrfiles.com/ugd/fbf59b_dee4af5a316b4f0484ad5863799dceb9.pdf?part-1.pdf" target="_blank" style="color: ${colorBlue}; font-weight: bold;">${part1}</a></p>`;
 
@@ -49,6 +52,7 @@ $w.onReady(function () {
     const brodeur = $w("#brodeur").text;
     $w("#brodeur").html = `<p style="text-align: center; font-family: 'questrial', sans-serif; font-size: 18px;"><a href="https://fbf59b14-1a92-4ba9-a7e6-89c702f37f2b.usrfiles.com/ugd/fbf59b_1b3e8fa4d1124bb4b3cd14a0d8e37112.pdf?Collaboration-with-LEAP-Brodeur_NEAFS-2018.pdf" target="_blank" style="color: ${colorBlue}; font-weight: bold;">${brodeur}</a></p>`;
 
+    //create back button
     $w("#back").link = "/member-resources";
 	$w("#back").target = "_self";
 });

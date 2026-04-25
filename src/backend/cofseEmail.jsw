@@ -1,5 +1,6 @@
 //email service backend file
-//responsible for sending triggered email for DDE application submissions
+//responsible for sending triggered email and creating members for COFSE
+//SHOULD NEVER HAVE TO BE MODIIFED
 
 import wixData from 'wix-data';
 import { triggeredEmails, contacts } from 'wix-crm-backend';
@@ -9,7 +10,7 @@ import { elevate } from 'wix-auth';
 
 export async function saveAndEmail(formData) {
     try {
-        //stores a submission into the DDE database
+        //stores a submission into the COFSE database
         const newItem = await wixData.insert("cofseApplications", {
             ...formData,
             title: formData.lastName || "New Submission",
@@ -20,7 +21,7 @@ export async function saveAndEmail(formData) {
         const bodyText = Object.keys(formData)
             .map(key => `${key}: ${formData[key]}`).join('\n');
 
-        //target email will be changed to COFSE email and DDE president email
+        //target email will be changed to COFSE email and Dr Ferrara
         //currently mine for testing purposes
         const reviewLink = `https://nardozzor.wixsite.com/council-of-forensic/admin-review?id=${newItem._id}`;
 
@@ -94,6 +95,8 @@ export async function saveAndEmail(formData) {
 export async function updateApplicationStatus(id, status) {
     if (!id) return { success: false, error: "No ID provided" };
 
+    //looks for the user record in databse and updates staus to accepted when approved
+    //called in admin review page
     try {
         const item = await wixData.get("cofseApplications", id, { suppressAuth: true });
         if (!item) return { success: false, error: "Submission not found" };
@@ -101,6 +104,7 @@ export async function updateApplicationStatus(id, status) {
         item.Reviewed = status;
         await wixData.update("cofseApplications", item, { suppressAuth: true });
 
+        //when approved, contact for user will become a member of site
         if (status === "Accepted") {
             console.log("Looking up contact for:", item.email);
 
@@ -110,6 +114,7 @@ export async function updateApplicationStatus(id, status) {
                 .find();
             console.log("Contact search done, found:", applicantSearch.items.length);
 
+            //creates temporary password
             await elevate(authentication.register)(item.email, "COFSE123!", {
                 contactInfo: {
                     firstName: item.firstName,
@@ -119,6 +124,7 @@ export async function updateApplicationStatus(id, status) {
 
             await new Promise(resolve => setTimeout(resolve, 3000));
 
+            //sends email asking new member to change password
             const newSearch = await elevatedQueryContacts()
                 .eq("info.emails.email", item.email)
                 .find();
@@ -144,8 +150,11 @@ export async function updateApplicationStatus(id, status) {
     }
 }
 
+//created when importing all current members to databse and creating contact
+//SHOULD NOT NEED TO BE USED AGAIN AND SHOULD NOT BE MODIFIED
 export async function bulkCreateContacts() {
     console.log("bulkCreateContacts started");
+    //creates bulk contacts 25 per click
     const results = await wixData.query("cofseApplications")
         .eq("review", "Pending")
         .limit(25)
@@ -157,6 +166,7 @@ export async function bulkCreateContacts() {
         return { processed: 0, hasMore: false };
     }
 
+    //takes record from database and makes member based on name and email
     for (const item of results.items) {
         try {
             const applicantSearch = await contacts.queryContacts()
@@ -176,6 +186,7 @@ export async function bulkCreateContacts() {
                 }, { suppressAuth: true });
             }
 
+            //changes reviewed staus is cofse database to approved
             item.Reviewed = "Accepted";
             await wixData.update("cofseApplications", item, { suppressAuth: true });
 
@@ -191,6 +202,7 @@ export async function bulkCreateContacts() {
     };
 }
 
+//receives to correct application for user to show on admin page
 export async function getApplicationForAdmin(id) {
     if (!id) return null;
     

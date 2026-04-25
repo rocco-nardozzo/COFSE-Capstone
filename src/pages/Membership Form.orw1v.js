@@ -1,5 +1,6 @@
 //DDE Membership Form Page
 //Responsible for containing the membership form that will create a database entry and be sent to DDE president
+//only constInputs line may need modified if application fields change
 
 import { fetch } from 'wix-fetch';
 import { saveAndEmail } from 'backend/emailService';
@@ -14,6 +15,7 @@ $w.onReady(function () {
     ];
 
     //Accesses the REST Countries API to populate countries ckecklist with all countries
+    //should not be modified
     fetch("https://restcountries.com/v3.1/all?fields=name", { method: 'get' })
         .then((httpResponse) => {
             if (httpResponse.ok) return httpResponse.json();
@@ -39,6 +41,7 @@ $w.onReady(function () {
 
         //actions for when submit button of form is clicked
         $w("#submitButton").onClick(async () => {
+            //ADD OR SUBTRACT WITH SAME NAME CREATED IN WIX VELO IF FIELD IS ADDED TO FORM AND DATABASE
             const allInputs = ["#institution", "#streetAddress", "#streetAddress2", "#city", "#state", "#postal", "#country", "#numberStudents", "#fepac", "#degrees", "#programWebsite", "#firstName", "#lastName", "#position", "#email", "#phone", "#date", "#signature"];
 
             let isFormValid = true;
@@ -98,6 +101,7 @@ $w.onReady(function () {
             }
         });
 
+        //create backbutton
         $w("#back").link = "/dde";
 	    $w("#back").target = "_self";
 });
