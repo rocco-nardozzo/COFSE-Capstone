@@ -19,7 +19,7 @@ export async function saveAndEmail(formData) {
 
         //target email will be changed to COFSE email and DDE president email
         //currently mine for testing purposes
-        const targetEmails = ["nardozzor@duq.edu"];
+        const targetEmails = ["elaw@uco.edu"];
 
         const sendPromises = targetEmails.map(async (email) => {
             try {

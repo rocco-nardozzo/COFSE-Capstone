@@ -23,7 +23,7 @@ export async function saveAndEmail(formData) {
 
         //target email will be changed to COFSE email and Dr Ferrara
         //currently mine for testing purposes
-        const reviewLink = `https://nardozzor.wixsite.com/council-of-forensic/admin-review?id=${newItem._id}`;
+        const reviewLink = `https://cofse-ed.org/admin-review?id=${newItem._id}`;
 
         const applicantSearch = await contacts.queryContacts()
             .eq("info.emails.email", formData.email)
