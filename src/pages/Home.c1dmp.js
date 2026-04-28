@@ -1,5 +1,5 @@
 //Home Page
-//Primarily focuses on element styling with css and creating links
+//Primarily focuses on element styling with css and creating different links
 
 $w.onReady(function () {
 
