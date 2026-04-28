@@ -42,7 +42,7 @@ export async function saveAndEmail(formData) {
             }, { suppressAuth: true });
         }
 
-        const targetEmails = ["nardozzor@duq.edu"];
+        const targetEmails = ["schantzl@duq.edu", "cofse.ed@gmail.com"];
 
         const sendPromises = targetEmails.map(async (email) => {
             try {
